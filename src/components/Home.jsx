@@ -4,6 +4,7 @@ import portfolioImage from "../assets/portfolio-img.jpg"
 import githubLogo from "../assets/github-logo.png"
 import linkedinLogo from "../assets/linkedin-logo.png"
 import mailLogo from "../assets/mail-logo.png"
+import woodyPreview from "../assets/woody.png"
 
 export default function Home(){
     function copyEMail(){
@@ -32,10 +33,20 @@ export default function Home(){
                 <p>This is a portfolio made for GEOG4463, and it is where I will be sharing all of my work done for that class.</p>
                 <p>I will also be hosting any other projects I do for class or fun here. </p>
             </div>
+            {window.location.pathname === "/portfolio-site/" ?
             <div className="content-card">
                 <h1 align="center">Projects</h1>
-                <iframe className="woodyFrame" src="./woody.html" width="100%" height="500px" align="left"></iframe>
+                <p align="center">Click on a project to learn more about it.</p>
+                <a href="/portfolio-site/woody" className="project-link">
+                    <img src={woodyPreview} alt="Woodland Park Project Preview"/>
+                </a>
+                {/**<iframe className="woodyFrame" src="./woody.html" width="100%" height="500px" align="left"></iframe>**/}
             </div>
+            : null}
+            {window.location.pathname === "/portfolio-site/woody" ? 
+            <p>Hello Woody Project!</p> : null}
+            {window.location.pathname === "/portfolio-site/climate-proj" ? 
+            <p>Hello Climate Project!</p> : null}
         </div>
         </>
     )
