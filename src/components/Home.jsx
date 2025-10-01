@@ -40,6 +40,7 @@ export default function Home(){
             <div className="content-card">
                 <h1 align="center">Projects</h1>
                 <p align="center">Click on a project to learn more about it.</p>
+                <p align="center">This feature is currently under development.</p>
                 <div className="project-links">
                     <a href="/portfolio-site/woody" className="project-link">
                         <h2>Woodland Park Dynamic Map</h2>
