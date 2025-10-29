@@ -6,6 +6,7 @@ import linkedinLogo from "../assets/linkedin-logo.png"
 import mailLogo from "../assets/mail-logo.png"
 import woodyPreview from "../assets/woody.png"
 import cda from "../assets/cda.jpg"
+import monarch from "../assets/monarch.png"
 
 export default function Home(){
     function copyEMail(){
@@ -49,6 +50,10 @@ export default function Home(){
                     <a href="/portfolio-site/climate-proj" className="project-link">
                         <h2>Coeur D'Alene Climate Project</h2>
                         <img src={cda} alt="Climate Data Analysis Project Preview" height="200px" width="200px"/>
+                    </a>
+                    <a href="/portfolio-site/monarch_migration" className="project-link">
+                        <h2>Monarch Butterfly Migration Patterns</h2>
+                        <img src={monarch} alt="Monarch Butterfly Migration Project Preview" height="200px" width="200px"/>
                     </a>
                     
                 </div>
