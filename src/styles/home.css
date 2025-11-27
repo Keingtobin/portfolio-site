@@ -5,6 +5,7 @@
 }
 
 .bio-card{
+    box-sizing: border-box; /* ensure padding doesn't cause overflow */
     background-color: #f0f0f0;
     width: 35%;
     padding: 20px;
@@ -24,12 +25,13 @@
     overflow-y: auto;
     height:100vh;
 }
+
 .headshot {
+    width: min(40vw, 320px); /* responsive width, caps at 320px */
+    max-width: 100%;
+    aspect-ratio: 1 / 1;     /* forces square so border-radius:50% makes a circle */
+    height: auto;
     border-radius: 50%;
-    width: 400px;
-    height: 400px;
-    max-width: 40vw;
-    max-height: 40vw;
     object-fit: cover;
     display: block;
     margin: 0 auto;
@@ -55,12 +57,47 @@
     display: flex;
     gap: 32px; /* space between links */
     align-items: flex-start;
+
+    /* allow items to wrap to the next line when necessary */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
+/* give each project link a flexible base so they can shrink/grow and wrap nicely */
 .project-link {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
     color: inherit;
+
+    /* let each card take up to ~320px but shrink if needed */
+    flex: 1 1 320px;
+    max-width: 400px;
+}
+
+/* on narrow screens force each project to take full width */
+@media (max-width: 900px) {
+    .split-container {
+        flex-direction: column;
+        height: auto;
+    }
+    .bio-card,
+    .content-card {
+        width: 100%;
+        height: auto;
+    }
+    .project-links {
+        gap: 16px;
+    }
+    .project-link {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
+
+    .content-card {
+        /* allow content-card to grow vertically when items wrap */
+        height: auto;
+        overflow: visible;
+    }
 }
